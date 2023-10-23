@@ -33,7 +33,7 @@ The tasks are stored in the browser's `localStorage`, allowing users to keep the
 If you want to customize the appearance of the to-do list, you can modify the CSS file (`styles.css`) to adjust the styles to your preferences.
 
 ## Link App
-[Link app](https://j-o-s-eandres.github.io/)
+[Link app](https://j-o-s-eandres.github.io/todo-list/)
 ## Contact
 
 If you have any questions or suggestions, please don't hesitate to get in touch with the developer:
