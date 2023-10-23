@@ -4,7 +4,6 @@ This is a simple to-do list project developed with HTML, CSS, and JavaScript. It
 
 <img width="850" alt="Captura de pantalla 2023-10-23 104544" src="https://github.com/J-o-s-eandres/J-o-s-eandres.github.io/assets/79519685/d8717abc-5c5c-4ba2-ad79-d1832ef03867">
 
-
 ## Features
 
 - **Add Tasks:** Users can add new tasks to their list by entering a description and clicking "Add."
@@ -12,6 +11,10 @@ This is a simple to-do list project developed with HTML, CSS, and JavaScript. It
 - **Mark as Complete:** Tasks can be marked as complete by clicking the checkbox next to each task.
 
 - **Delete Tasks:** Users can remove tasks they no longer wish to keep on their list by clicking the "Delete" button.
+
+## Storing Tasks in LocalStorage
+
+The tasks are stored in the browser's `localStorage`, allowing users to keep their to-do list even after closing the browser. This ensures that your tasks persist between sessions.
 
 ## Usage
 
