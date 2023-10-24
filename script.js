@@ -13,7 +13,7 @@ let LIST = []
 
 //fecha
 const FECHA = new Date()
-fecha.innerHTML = FECHA.toLocaleDateString('es-MX',{weekday:'long',month:'short',day:'numeric'})
+fecha.innerHTML = FECHA.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
 
 //funcion agg tarea
 
