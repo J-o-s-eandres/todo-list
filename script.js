@@ -10,8 +10,12 @@ let id = 0;
 let LIST = [];
 
 // Fecha
-const FECHA = new Date();
-fecha.innerHTML = FECHA.toLocaleDateString('es-MX', { weekday: 'long', month: 'short', day: 'numeric' });
+// const FECHA = new Date();
+// fecha.innerHTML = FECHA.toLocaleDateString('es-MX', { weekday: 'long', month: 'short', day: 'numeric' });
+
+// Date
+const DATE = new Date();
+date.innerHTML = DATE.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', timeZone: 'America/Mexico_City' });
 
 function agregarTarea(tarea, id, realizado, eliminado) {
     if (eliminado) {
