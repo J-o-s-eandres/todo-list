@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "cypress": "^13.3.3",
-    "eslint": "^8.52.0",
+    "eslint": "eslint .",
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
