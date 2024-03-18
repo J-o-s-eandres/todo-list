@@ -5,6 +5,14 @@
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
-    "cypress:open": "cypress open"
-  }
+    "cypress:open": "cypress open",
+    "cypress:test": "cypress run --headless"
+  },
+  "name": "todo-list",
+  "description": "[![pages-build-deployment](https://github.com/J-o-s-eandres/todo-list/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/J-o-s-eandres/todo-list/actions/workflows/pages/pages-build-deployment)",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
