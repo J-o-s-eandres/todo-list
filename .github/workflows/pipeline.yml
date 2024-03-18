@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Run EsLint
-        run: npm run eslint
+        run: npm install -g eslint
 
   cypress-tests:
     runs-on: ubuntu-18.04

@@ -7,7 +7,7 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:test": "cypress run --headless",
-    "eslint": "eslint ."
+    "lint": "eslint.js"
   },
   "name": "todo-list",
   "description": "[![pages-build-deployment](https://github.com/J-o-s-eandres/todo-list/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/J-o-s-eandres/todo-list/actions/workflows/pages/pages-build-deployment)",
