@@ -1,12 +1,13 @@
 {
   "devDependencies": {
     "cypress": "^13.3.3",
-    "eslint": "eslint .",
+    "eslint": "^8.52.0",
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:test": "cypress run --headless"
+    "cypress:test": "cypress run --headless",
+    "eslint": "eslint ."
   },
   "name": "todo-list",
   "description": "[![pages-build-deployment](https://github.com/J-o-s-eandres/todo-list/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/J-o-s-eandres/todo-list/actions/workflows/pages/pages-build-deployment)",
