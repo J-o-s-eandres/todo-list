@@ -47,21 +47,12 @@ function tareaEliminada(element) {
   const elementId = element.id;
   const index = LIST.findIndex(item => item.id === elementId);
   if (index !== -1) {
-    LIST.splice(index, 1);
+    LIST[index].eliminado = true;
+    lista.removeChild(element.parentNode); // Eliminar el elemento del DOM
+    localStorage.setItem('TODO', JSON.stringify(LIST)); // Actualizar el almacenamiento local
   }
-  element.parentNode.parentNode.removeChild(element.parentNode);
-  localStorage.setItem('TODO', JSON.stringify(LIST)); // Actualizar el almacenamiento local
 }
 
-const data = localStorage.getItem('TODO');
-if (data) {
-  LIST = JSON.parse(data).filter(item => !item.eliminado); // Filtrar elementos eliminados
-  id = LIST.length;
-  cargarLista(LIST);
-} else {
-  LIST = [];
-  id = 0;
-}
 
 
 botonEnter.addEventListener('click', ()=>{
@@ -126,6 +117,9 @@ if (data) {
 
 function cargarLista(DATA) {
   DATA.forEach(function(i) {
-    agregarTarea(i.nombre, i.id, i.realizado, i.eliminado);
+    if (!i.eliminado) {
+      agregarTarea(i.nombre, i.id, i.realizado, i.eliminado);
+    }
   });
 }
+
