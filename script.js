@@ -44,8 +44,23 @@ function tareaRealizada(element) {
 
 // funcion tarea eliminada
 function tareaEliminada(element) {
+  const elementId = element.id;
+  const index = LIST.findIndex(item => item.id === elementId);
+  if (index !== -1) {
+    LIST.splice(index, 1);
+  }
   element.parentNode.parentNode.removeChild(element.parentNode);
-  LIST[element.id].eliminado =true;
+  localStorage.setItem('TODO', JSON.stringify(LIST)); // Actualizar el almacenamiento local
+}
+
+const data = localStorage.getItem('TODO');
+if (data) {
+  LIST = JSON.parse(data).filter(item => !item.eliminado); // Filtrar elementos eliminados
+  id = LIST.length;
+  cargarLista(LIST);
+} else {
+  LIST = [];
+  id = 0;
 }
 
 
