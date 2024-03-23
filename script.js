@@ -21,20 +21,18 @@ function agregarTarea(tarea, id, realizado, eliminado) {
     return;
   }
 
-  const REALIZADO = realizado ? check : uncheck;
-  const LINE = realizado ? lineThrough : '';
+  const REALIZADO = realizado ?check :uncheck; // operadores ternarios (? true y : false)
+  const LINE = realizado ?lineThrough :'';
 
-  const elemeto = `
-    <li id="elemento">
-      <i class="far ${REALIZADO}" data="realizado" id="${id}"></i>
-      <p class="text ${LINE}">${tarea}</p>
-      <i class="fas fa-trash de" data="eliminado" id="${id}"></i>
-    </li>
-  `;
+  const elemeto=`  
+                <li id="elemento">
+                    <i class="far ${REALIZADO}" data="realizado" id="${id}"></i>
+                    <p class="text ${LINE}">${tarea}</p>
+                    <i class="fas fa-trash de" data="eliminado" id="${id}"></i>
+                </li>  `;
 
-  lista.insertAdjacentHTML('beforeend', elemeto);
+  lista.insertAdjacentHTML('beforeend', elemeto);// beforeend=antes de finalizar/afterbegin=despues de haber comenzado
 }
-
 
 // funcion tarea realizada
 function tareaRealizada(element) {
@@ -46,15 +44,9 @@ function tareaRealizada(element) {
 
 // funcion tarea eliminada
 function tareaEliminada(element) {
-  const elementId = element.id;
-  const index = LIST.findIndex(item => item.id === elementId);
-  if (index !== -1) {
-    LIST[index].eliminado = true;
-    lista.removeChild(element.parentNode); // Eliminar el elemento del DOM
-    localStorage.setItem('TODO', JSON.stringify(LIST)); // Actualizar el almacenamiento local
-  }
+  element.parentNode.parentNode.removeChild(element.parentNode);
+  LIST[element.id].eliminado =true;
 }
-
 
 
 botonEnter.addEventListener('click', ()=>{
@@ -119,8 +111,6 @@ if (data) {
 
 function cargarLista(DATA) {
   DATA.forEach(function(i) {
-    if (!i.eliminado) {
-      agregarTarea(i.nombre, i.id, i.realizado, i.eliminado);
-    }
+    agregarTarea(i.nombre, i.id, i.realizado, i.eliminado);
   });
 }
