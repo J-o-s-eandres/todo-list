@@ -3,17 +3,19 @@ const fecha = document.querySelector('#fecha');
 const lista = document.querySelector('#lista');
 const input = document.querySelector('#input');
 const botonEnter = document.querySelector('#enter');
-const check = 'fa-check-circle';
-const uncheck = 'fa-circle';
+const check='fa-check-circle';
+const uncheck='fa-circle';
 const lineThrough = 'line-through';
 let id;
 let LIST = [];
 
+
 // fecha
 const FECHA = new Date();
-fecha.innerHTML = FECHA.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+fecha.innerHTML = FECHA.toLocaleDateString('en-US', {weekday: 'long', month: 'short', day: 'numeric'});
 
 // funcion agg tarea
+
 function agregarTarea(tarea, id, realizado, eliminado) {
   if (eliminado) {
     return;
@@ -33,12 +35,13 @@ function agregarTarea(tarea, id, realizado, eliminado) {
   lista.insertAdjacentHTML('beforeend', elemeto);
 }
 
+
 // funcion tarea realizada
 function tareaRealizada(element) {
   element.classList.toggle(check);
   element.classList.toggle(uncheck);
   element.parentNode.querySelector('.text').classList.toggle(lineThrough);
-  LIST[element.id].realizado = LIST[element.id].realizado ? false : true;
+  LIST[element.id].realizado = LIST[element.id].realizado ?false :true;
 }
 
 // funcion tarea eliminada
@@ -52,12 +55,13 @@ function tareaEliminada(element) {
   }
 }
 
-// Evento click en el botón para agregar tarea
-botonEnter.addEventListener('click', () => {
+
+
+botonEnter.addEventListener('click', ()=>{
   const tarea = input.value;
   if (tarea) {
     agregarTarea(tarea, id, false, false);
-    LIST.push({
+    LIST.push({// push agg elementos a un array
       nombre: tarea,
       id: id,
       realizado: false,
@@ -65,17 +69,17 @@ botonEnter.addEventListener('click', () => {
     });
   }
   localStorage.setItem('TODO', JSON.stringify(LIST));
-  input.value = '';
+  input.value='';
   id++;
 });
 
-// Evento al soltar la tecla Enter en el input
-document.addEventListener('keyup', function (event) {
-  if (event.key == 'Enter') {
+
+document.addEventListener('keyup', function(event) {// keyup=cuando suelto el teclado
+  if (event.key=='Enter') {
     const tarea = input.value;
     if (tarea) {
       agregarTarea(tarea, id, false, false);
-      LIST.push({
+      LIST.push({// push agg elementos a un array
         nombre: tarea,
         id: id,
         realizado: false,
@@ -83,38 +87,38 @@ document.addEventListener('keyup', function (event) {
       });
     }
     localStorage.setItem('TODO', JSON.stringify(LIST));
-    input.value = '';
+    input.value='';
     id++;
   }
 });
 
-// Evento clic en la lista de tareas
-lista.addEventListener('click', function (event) {
+
+lista.addEventListener('click', function(event) {
   const element = event.target;
   const elementData = element.attributes.data.value;
 
-  if (elementData === 'realizado') {
+  if (elementData ==='realizado') {
     tareaRealizada(element);
-  } else if (elementData === 'eliminado') {
+  } else if (elementData ==='eliminado') {
     tareaEliminada(element);
   }
   localStorage.setItem('TODO', JSON.stringify(LIST));
 });
 
-// Cargar tareas desde el almacenamiento local al cargar la página
-const data = localStorage.getItem('TODO');
+
+const data= localStorage.getItem('TODO');
+
 if (data) {
-  LIST = JSON.parse(data);
+  LIST= JSON.parse(data);
   id = LIST.length;
   cargarLista(LIST);
 } else {
-  LIST = [];
+  LIST=[];
   id = 0;
 }
 
-// Función para cargar las tareas en la lista
 function cargarLista(DATA) {
-  DATA.forEach(function (i) {
+  DATA.forEach(function(i) {
     if (!i.eliminado) {
       agregarTarea(i.nombre, i.id, i.realizado, i.eliminado);
     }
